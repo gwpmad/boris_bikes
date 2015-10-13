@@ -1,4 +1,4 @@
-# require 'spec_helper.rb'
+require 'docking_station'
 
 describe DockingStation do
 
