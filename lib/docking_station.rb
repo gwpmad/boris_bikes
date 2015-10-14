@@ -1,26 +1,18 @@
-require_relative './bike'
+require_relative './bike'  # => true
 
 class DockingStation
-attr_reader :bikes
+attr_reader :bikes    # => nil
 
 	def initialize
 		@bikes = []
 	end
 
 	def release_bike
-		if @bikes.length == 0
-    	raise StandardError, 'Docking Station is empty'
-		else
-			@bikes.pop
-		end
+	@bikes.length == 0 ? (raise StandardError) : (@bikes.pop)
 	end
 
 	def dock(docked_bike)
-		if @bikes.length == 20
-			raise StandardError, 'Docking station is full'
-		else
-			@bikes << docked_bike
-		end
+	@bikes.length == 20 ? (raise StandardError) : (@bikes << docked_bike)
 	end
 
 end
