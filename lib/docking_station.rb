@@ -12,7 +12,7 @@ attr_reader :bikes    # => nil
 	end
 
 	def dock(docked_bike)
-	@bikes.length == 20 ? (raise StandardError) : (@bikes << docked_bike)
+	@bikes.length >= 20 ? (raise StandardError) : (@bikes << docked_bike)
 	end
 
 end
