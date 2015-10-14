@@ -9,6 +9,7 @@ attr_reader :bike
 	end
 
 	def dock(docked_bike)
+		raise StandardError, 'Docking station is full' unless !@bike
 		@bike = docked_bike
 	end
 

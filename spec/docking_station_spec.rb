@@ -22,6 +22,10 @@ describe DockingStation do
       subject.dock(docked_bike)
       expect(subject.bike).to eq docked_bike
     end
+		it 'raises an exception when there is already a bike docked' do
+			subject.dock(Bike.new)
+			expect {subject.dock(Bike.new)}.to raise_error("Docking station is full")
+		end
   end
 
 end
