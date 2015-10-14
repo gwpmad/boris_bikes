@@ -5,7 +5,7 @@ describe DockingStation do
 
 	describe '#initialize' do
 		it 'sets the capacity to DEFAULT_CAPACITY if no argument is passed' do
-			expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+			expect(subject.capacity).to eq described_class::DEFAULT_CAPACITY
 		end
 		it 'sets the capcity to the specified argument when passed' do
 			station = DockingStation.new(30)
