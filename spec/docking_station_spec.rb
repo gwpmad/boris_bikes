@@ -12,7 +12,6 @@ describe DockingStation do
 
 			it 'reduces the number of bikes by one' do
 				2.times {subject.dock(Bike.new)}
-				#before_release = @bikes.length
 				expect{subject.release_bike}.to change {subject.bikes.length}.by(-1)
 			end
 	    it 'throws an error if docking station is empty' do #the default subject should have no bikes, so this should error.

@@ -8,11 +8,22 @@ attr_reader :bikes    # => nil
 	end
 
 	def release_bike
-	@bikes.length == 0 ? (raise StandardError) : (@bikes.pop)
+	raise StandardError if empty?
+	@bikes.pop
 	end
 
 	def dock(docked_bike)
-	@bikes.length >= 20 ? (raise StandardError) : (@bikes << docked_bike)
+	raise StandardError if full?
+	@bikes << docked_bike
+	end
+
+	private               # => DockingStation
+	def full?
+		@bikes.length >= 20
+	end
+
+	def empty?
+		@bikes.empty?
 	end
 
 end
