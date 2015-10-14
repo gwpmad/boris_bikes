@@ -2,6 +2,7 @@ require_relative './bike'  # => true
 
 class DockingStation
 attr_reader :bikes    # => nil
+DEFAULT_CAPACITY = 20
 
 	def initialize
 		@bikes = []
@@ -19,7 +20,7 @@ attr_reader :bikes    # => nil
 
 	private               # => DockingStation
 	def full?
-		@bikes.length >= 20
+		@bikes.length >= DEFAULT_CAPACITY
 	end
 
 	def empty?
