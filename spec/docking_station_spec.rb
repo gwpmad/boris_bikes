@@ -13,8 +13,7 @@ describe DockingStation do
 			it 'reduces the number of bikes by one' do
 				2.times {subject.dock(Bike.new)}
 				#before_release = @bikes.length
-				subject.release_bike
-				expect(subject.bikes.length).to eq 1
+				expect{subject.release_bike}.to change {subject.bikes.length}.by(-1)
 			end
 	    it 'throws an error if docking station is empty' do #the default subject should have no bikes, so this should error.
 	      	expect {subject.release_bike}.to raise_error(StandardError)
@@ -29,9 +28,7 @@ describe DockingStation do
 				expect {subject.dock(Bike.new)}.to raise_error(StandardError)
 			end
 			it 'increases the number of bikes by one' do
-				before_dock = subject.bikes.length
-				subject.dock(Bike.new)
-				expect(subject.bikes.length).to eq before_dock + 1
+				expect {subject.dock(Bike.new)}.to change {subject.bikes.length}.by(1)
 			end
   end
 
